@@ -1,17 +1,36 @@
-# slot_machine
+# Лабораторная работа №5-6. Flutter
 
-A new Flutter project.
+**Выполнил:** Плеско Д. 
+**Группа:** ИСП-231
+**Дата сдачи:** 05.05.2026
 
-## Getting Started
+## Что изучили
 
-This project is a starting point for a Flutter application.
+1. Разницу между `StatelessWidget` и `StatefulWidget`, механизм хранения и обновления состояния через `setState()`.
+2. Асинхронную логику в UI: блокировку интерфейса во время выполнения операции, отключение повторных нажатий.
+3. Принцип "раннего выхода" (early return) и тернарные операторы в Dart.
+4. Декомпозицию виджетов для улучшения читаемости кода (вынос `SlotRow` в отдельный файл).
+5. Создание анимаций через виджеты `AnimatedOpacity` и `AnimatedSwitcher`, реалистичную прокрутку слотов с изменением скорости.
 
-A few resources to get you started if this is your first Flutter project:
+## Скриншот финального приложения
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+![Слот-машина](img/step4_PleskoD.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Инструкция по запуску
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <url>
+   ```
+2. Перейдите в папку проекта:
+   ```bash
+   cd slot_machine
+   ```
+3. Установите зависимости:
+   ```bash
+   flutter pub get
+   ```
+4. Запустите приложение:
+   ```bash
+   flutter run -d chrome
+   ```
