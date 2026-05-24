@@ -24,7 +24,7 @@ class _SlotMachineState extends State<SlotMachine> {
   var _message = '';
   var _isSpinning = false;
   var _isMuted = false;
-  var _backgroundStarted = false;
+  // var _backgroundStarted = false;
 
   @override
   void initState() {
@@ -53,15 +53,15 @@ class _SlotMachineState extends State<SlotMachine> {
 
   Future<void> _spin() async {
     if (_coins <= 0 || _isSpinning) return; 
-    SoundService.playClick();
+    await SoundService.playClick();
       setState(() {
         _isSpinning = true;
         _message = '';
       });
-      if (!_backgroundStarted) {
-        SoundService.playBackground();
-        _backgroundStarted = true;
-      }
+      // if (!_backgroundStarted) {
+      //   SoundService.playBackground();
+      //   _backgroundStarted = true;
+      // }
       final result1 = await _spinReel(
         totalTicks: 10,
         onTick: (val) => setState(() => _slot1 = val),
@@ -75,9 +75,7 @@ class _SlotMachineState extends State<SlotMachine> {
         onTick: (val) => setState(() => _slot3 = val),
       );
       await Future.delayed(Duration(milliseconds: 300));
-      setState(() {
-        _isSpinning = false;
-        if (result1 == result2 && result2 == result3) {
+      if (result1 == result2 && result2 == result3) {
           if (result1 == 'assets/images/seven.png') {
             _coins += 10;
             _message = 'ДЖЕКПОТ! 🎰🎰🎰 +10 монет';
@@ -92,6 +90,8 @@ class _SlotMachineState extends State<SlotMachine> {
           _message = 'Попробуй еще раз 😔 -1 монета';
           SoundService.playLose();
         }
+      setState(() {
+        _isSpinning = false;
       });
   }
   void _reset() {
