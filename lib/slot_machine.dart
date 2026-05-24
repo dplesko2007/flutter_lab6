@@ -81,7 +81,7 @@ class _SlotMachineState extends State<SlotMachine> {
           if (result1 == 'assets/images/seven.png') {
             _coins += 10;
             _message = 'ДЖЕКПОТ! 🎰🎰🎰 +10 монет';
-            SoundService.playJackpot()
+            SoundService.playJackpot();
           } else {
             _coins += 3;
             _message = 'Победа! 🎊 +3 монеты';
